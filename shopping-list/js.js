@@ -23,20 +23,37 @@ function insertHtml(e) {
   const text = itemName.value.trim();
   if (!text) return;
 
-  const uniqueId = "check_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
+  const uniqueId =
+    "check_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
 
   items.insertAdjacentHTML(
     "afterbegin",
     `
-    <div class="alert alert-warning mt-3 row justify-content-between align-items-center" role="alert">
-      <div class="form-check col-11">
-        <input class="form-check-input" type="checkbox" id="${uniqueId}">
-        <label class="form-check-label" for="${uniqueId}">${text}</label>
-      </div>
-      <a href="#" class="delete-button btn btn-outline-danger col-1">
-        <i class="bi bi-file-excel"></i>
-      </a>
-    </div>
+    <li
+              class="alert alert-warning mt-3 row justify-content-between align-items-center p-1 "
+              role="alert"
+              
+            >
+              <div class="form-check col-10">
+                <input
+                  class="form-check-input item-checkbox"
+                  type="checkbox"
+                  id="${uniqueId}"
+                />
+                <label class="form-check-label" for="${uniqueId}"
+                  >${text}</label
+                >
+              </div>
+              <div class="col-1">
+                <button
+                  href="#"
+                  class="delete-button btn btn-outline-danger border-0"
+                  
+                >
+                  <i class="bi bi-x" style="font-size: 1.5rem;"></i></i>
+                </button>
+              </div>
+            </li>
     `
   );
 
@@ -48,8 +65,6 @@ insertItemButton.addEventListener("click", insertHtml);
 
 // ✅ PRO: Event Delegation (ikon'a tıklasa bile çalışır)
 items.addEventListener("click", (e) => {
-  e.preventDefault();
-
   const deleteBtn = e.target.closest(".delete-button");
   if (!deleteBtn) return;
 
@@ -59,3 +74,34 @@ items.addEventListener("click", (e) => {
 
 // Sayfa ilk açılışta doğru state
 updateEmptyState();
+
+//CHECK
+items.addEventListener("change", (e) => {
+  const item_checkbox = e.target.closest(".item-checkbox");
+  if(!item_checkbox) return;
+  const li = item_checkbox.closest("li");
+  if(!li) return;
+  li.classList.toggle("item-completed", item_checkbox.checked);
+ 
+});
+
+
+//ALL INCOMPLETE COMPLETED
+
+function filterItems(filterType) {
+  const li_items = items.querySelectorAll("li");
+
+  for (let li of li_items) {
+    li.classList.remove("d-block");
+    li.classList.remove("d-none");
+
+    const completed = li.hasAttribute("item-completed");
+    if (filterType == "completed") {
+      li.classList.toggle(completed ? "d-block" : "d-none");
+    } else if (filterType == "incomplete") {
+      li.classList.toggle(completed ? "d-block" : "d-none");
+    } else {
+      li.classList.toggle("d-block");
+    }
+  }
+}

@@ -49,12 +49,14 @@
             id="btn-group-search"
             class="border border-secondary rounded p-3 border-opacity-50"
           >
-            <input class="btn btn-secondary" type="button" value="All" />
-            <input class="btn btn-secondary" type="submit" value="Incomplete" />
-            <input class="btn btn-secondary" type="reset" value="Completed" />
-          </div>
-          <div class="items">
-            
+          <button item-filter="all" class="btn btn-secondary">All</button>
+          <button item-filter="incomplete" class="btn btn-secondary">Incomplete</button>
+          <button item-filter="completed" class="btn btn-secondary">Completed</button>
+        </div>
+          <div >
+            <ul class="items ps-2">
+              
+            </ul>
           </div>
           <input
             class="btn btn-outline-danger mt-2"
