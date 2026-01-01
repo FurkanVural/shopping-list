@@ -5,73 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>Shopping List</title>
   </head>
   <body>
-    <section id="main">
-      <div class="container">
-        <h1 class="text-center mt-3">Shopping List</h1>
-        <div
-          class="btn-toolbar mb-3 mt-3"
-          role="toolbar"
-          aria-label="Toolbar with button groups"
-        >
-          <div class="input-group" style="width: 100%">
-            <input
-              id="item-name"
-              type="text"
-              class="form-control"
-              placeholder="Input group example"
-              aria-label="Input group example"
-              aria-describedby="btnGroupAddon"
-            />
-            <div class="input-group-text" id="btnGroupAddon">
-              <button id="btn-add" href="" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="silinecek-1 alert alert-danger" role="alert">
-          A simple danger alert—check it out!
-        </div>
+    <div class="container">
+      <h1 class="text-center">Shopping List</h1>
 
-        <div class="silinecek-2">
-          <div
-            id="btn-group-search"
-            class="border border-secondary rounded p-3 border-opacity-50"
-          >
-          <button item-filter="all" class="btn btn-secondary">All</button>
-          <button item-filter="incomplete" class="btn btn-secondary">Incomplete</button>
-          <button item-filter="completed" class="btn btn-secondary">Completed</button>
-        </div>
-          <div >
-            <ul class="items ps-2">
-              
-            </ul>
-          </div>
+      <form class="shopping-form border rounded p-3 mb-3">
+        <div class="input-group">
           <input
-            class="btn btn-outline-danger mt-2"
-            type="reset"
-            value="Clear"
+            type="text"
+            id="item_name"
+            class="form-control"
+            placeholder="Eleman Ekle"
           />
+          <button class="btn btn-primary" type="submit">
+            <i class="bi bi-plus"></i>
+          </button>
         </div>
+      </form>
+      <div
+        class="filter-buttons border rounded border-secondary border-opacity-50 p-3"
+      >
+        <button class="filter-btn-all btn btn-primary">All</button>
+        <button class="btn btn-secondary">Incomplete</button>
+        <button class="btn btn-secondary">Completed</button>
       </div>
-    </section>
 
-    <script src="js.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+      <ul class="shopping-list list-unstyled"></ul>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
