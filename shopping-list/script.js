@@ -111,9 +111,9 @@ function createListItem(item) {
   const deleteIcon = document.createElement("span");
   deleteIcon.className = "fs-3 bi bi-x text-danger delete-icon";
   shoppingList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("delete-icon")) removeItem(e);
-});
-  /* deleteIcon.addEventListener("click", removeItem); */
+    if (e.target.classList.contains("delete-icon")) removeItem(e);
+  });
+  /* deleteIcon.addEventListener("click", removeItem); */Z<<Z
   // li
   const li = document.createElement("li");
   li.setAttribute("item-id", item.id);
@@ -158,7 +158,6 @@ function handleFilterSelection(e) {
     b.classList.replace("btn-primary", "btn-secondary")
   );
   filterBtn.classList.replace("btn-secondary", "btn-primary");
-  
 
   filterItems(filterBtn.dataset.filter);
   saveToLS();
