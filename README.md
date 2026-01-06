@@ -1,3 +1,4 @@
+
 # Shopping List
 
 Bu projede günlük hayatta pratik şekilde kullanılabilecek bir alışveriş listesi uygulaması geliştirdim. Amaç, kullanıcıların listeyi hızlıca yönetebilmesini ve sayfa yenilense bile verilerin kaybolmamasını sağlamaktı. Basit bir arayüzle, temel ama öğretici bir front-end akışı kurmaya odaklandım.
@@ -48,7 +49,8 @@ Projeyi çalıştırmak için ekstra bir kurulum gerekmiyor. Dosyaları indirdik
 - Kod büyüdükçe fonksiyonları daha modüler dosyalara ayırmak okunabilirliği artırabilir.  
 
 ## Ekran Görüntüsü / Demo
-
+![Ekran görüntüsü_6-1-2026_1641_127 0 0 1](https://github.com/user-attachments/assets/61c025d1-9d07-48b3-aa61-6e2ec6a1c26d)
+![Ekran görüntüsü_6-1-2026_16448_127 0 0 1](https://github.com/user-attachments/assets/7f9773ed-5bb0-4ad6-855d-ab61b46f936e)
 
 
 ## Lisans
