@@ -52,5 +52,3 @@ Projeyi çalıştırmak için ekstra bir kurulum gerekmiyor. Dosyaları indirdik
 
 
 ## Lisans
-
-MIT
