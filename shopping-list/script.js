@@ -19,12 +19,7 @@ function removeAll() {
   shoppingList.innerHTML = "";
   localStorage.clear("shoppingItems");
   updatePage();
-  /* const liAll = document.querySelectorAll("li");
-    for(let li of liAll){
-        shoppingList.removeChild(li);
-    }
-    saveToLS();
-    updatePage(); */
+  
 }
 
 function saveToLS() {
@@ -111,18 +106,17 @@ function createListItem(item) {
   const deleteIcon = document.createElement("span");
   deleteIcon.className = "fs-3 bi bi-x text-danger delete-icon";
   shoppingList.addEventListener("click", (e) => {
-  const deleteIcon = e.target.closest(".delete-icon");
-  if (!deleteIcon) return;
+    const deleteIcon = e.target.closest(".delete-icon");
+    if (!deleteIcon) return;
 
-  const li = deleteIcon.closest("li");
-  if (!li) return;
+    const li = deleteIcon.closest("li");
+    if (!li) return;
 
-  li.remove();
-  updatePage();
-  saveToLS();
-});
-  /* deleteIcon.addEventListener("click", removeItem); */
-  // li
+    li.remove();
+    updatePage();
+    saveToLS();
+  });
+
   const li = document.createElement("li");
   li.setAttribute("item-id", item.id);
   li.className = "border rounded p-2 mb-1";
@@ -132,16 +126,6 @@ function createListItem(item) {
   li.appendChild(deleteIcon);
   return li;
 }
-
-/* function removeItem(e) {
-  e.stopPropagation();
-  const li = e.target.closest("li");
-  if (!li) return;
-
-  shoppingList.removeChild(li);
-  updatePage();
-  saveToLS();
-} */
 
 function openEditMode(e) {
   const li = e.target.parentElement;
@@ -205,21 +189,6 @@ function updatePage() {
   alert.classList.toggle("d-none", isEmpty);
   clearBtn.classList.toggle("d-none", !isEmpty);
   filterButtons.classList.toggle("d-none", !isEmpty);
-  /* if (!isItem) {
-    alert.classList.add("d-block");
-    alert.classList.remove("d-none");
-    filterButtons.classList.add("d-none");
-    filterButtons.classList.remove("d-block");
-    clearBtn.classList.add("d-none");
-    clearBtn.classList.remove("d-block");
-  } else {
-    alert.classList.add("d-none");
-    alert.classList.remove("d-block");
-    filterButtons.classList.add("d-block");
-    filterButtons.classList.remove("d-none");
-    clearBtn.classList.add("d-block");
-    clearBtn.classList.remove("d-none");
-  } */
 }
 
 /*    */
