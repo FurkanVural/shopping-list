@@ -111,9 +111,17 @@ function createListItem(item) {
   const deleteIcon = document.createElement("span");
   deleteIcon.className = "fs-3 bi bi-x text-danger delete-icon";
   shoppingList.addEventListener("click", (e) => {
-    if (e.target.classList.contains("delete-icon")) removeItem(e);
-  });
-  /* deleteIcon.addEventListener("click", removeItem); */Z<<Z
+  const deleteIcon = e.target.closest(".delete-icon");
+  if (!deleteIcon) return;
+
+  const li = deleteIcon.closest("li");
+  if (!li) return;
+
+  li.remove();
+  updatePage();
+  saveToLS();
+});
+  /* deleteIcon.addEventListener("click", removeItem); */
   // li
   const li = document.createElement("li");
   li.setAttribute("item-id", item.id);
@@ -125,13 +133,15 @@ function createListItem(item) {
   return li;
 }
 
-function removeItem(e) {
-  const li = e.target.parentElement;
+/* function removeItem(e) {
+  e.stopPropagation();
+  const li = e.target.closest("li");
+  if (!li) return;
 
   shoppingList.removeChild(li);
   updatePage();
   saveToLS();
-}
+} */
 
 function openEditMode(e) {
   const li = e.target.parentElement;
@@ -188,19 +198,28 @@ function updateFilterItems() {
 
 function updatePage() {
   const alert = document.querySelector(".alert");
-  const isItem = shoppingList.hasChildNodes();
+  const isEmpty = shoppingList.hasChildNodes();
+  const clearBtn = document.querySelector(".remove-btn");
   const filterButtons = document.querySelector(".filter-buttons");
-  if (!isItem) {
+
+  alert.classList.toggle("d-none", isEmpty);
+  clearBtn.classList.toggle("d-none", !isEmpty);
+  filterButtons.classList.toggle("d-none", !isEmpty);
+  /* if (!isItem) {
     alert.classList.add("d-block");
     alert.classList.remove("d-none");
     filterButtons.classList.add("d-none");
     filterButtons.classList.remove("d-block");
+    clearBtn.classList.add("d-none");
+    clearBtn.classList.remove("d-block");
   } else {
     alert.classList.add("d-none");
     alert.classList.remove("d-block");
     filterButtons.classList.add("d-block");
     filterButtons.classList.remove("d-none");
-  }
+    clearBtn.classList.add("d-block");
+    clearBtn.classList.remove("d-none");
+  } */
 }
 
 /*    */
